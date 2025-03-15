@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/styles/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+<h1 id = "heading">WHAT FOOD IS IT?</h1>
+<h2 style = "margin-top: 90px;">File Upload</h2>
+<div style="text-align: center; margin-top: 100px; size: 50px;">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="imageFile" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+</div>
+<h1 id="predicted">{{ predicted_class }}</h1>
+<script src = "../static/scripts/index.js"></script>
+</body>
+</html>
