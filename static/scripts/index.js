@@ -15,18 +15,20 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
         method: 'POST',
         body: formData
     })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('predicted').innerText = data.message
-                .replace(/_/g, '') // Remove underscores
-                .replace(
-                    /\w\S*/g,
-                    text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
-                ); //  Title case
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    .then(response => response.json())
+    .then(data => {
+        let foodName = data.message
+            .replace(/_/g, '') // Remove underscores
+            .replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()); // Title case
+
+        document.getElementById('predicted').innerText = "AI identified food. Solve the puzzles to reveal it!";
+        
+        // Start the puzzle sequence
+        startPuzzleSequence(foodName);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });
 
 document.getElementById('imageFile').addEventListener('change', function (event) {
@@ -50,9 +52,32 @@ document.getElementById('imageFile').addEventListener('change', function (event)
     }
 });
 
+function startPuzzleSequence(food) {
+    const puzzles = [
+        { question: "What color is this food typically?", answer: "color" },
+        { question: "Is this food sweet or savory?", answer: "taste" },
+        { question: "Which cuisine is this food commonly found in?", answer: "cuisine" }
+    ];
 
-window.onload = function() {
-    var food = "placeholder";
-    var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
+    let puzzleIndex = 0;
+
+    function askNextPuzzle() {
+        if (puzzleIndex < puzzles.length) {
+            let userAnswer = prompt(puzzles[puzzleIndex].question);
+            if (userAnswer !== null) {
+                puzzleIndex++;
+                askNextPuzzle();
+            }
+        } else {
+            // All puzzles solved, reveal anagram
+            revealAnagram(food);
+        }
+    }
+
+    askNextPuzzle();
+}
+
+function revealAnagram(food) {
+    let anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
     document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
-};
+}
