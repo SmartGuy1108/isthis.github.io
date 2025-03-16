@@ -49,3 +49,10 @@ document.getElementById('imageFile').addEventListener('change', function (event)
         imagePreview.classList.add("hidden");
     }
 });
+
+
+window.onload = function() {
+    var food = "placeholder";
+    var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
+    document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
+};
