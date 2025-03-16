@@ -21,7 +21,6 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     .then(data => {
         let foodName = data.message.replace(/_/g, '');
         document.getElementById('predicted').innerHTML = foodName;
-        startWordle(foodName);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -50,3 +49,9 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
          imagePreview.classList.add("hidden");
      }
  });
+
+
+
+var food = foodName;
+var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
+document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
