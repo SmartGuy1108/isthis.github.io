@@ -20,6 +20,7 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     .then(response => response.json())
     .then(data => {
         let foodName = data.message.replace(/_/g, '');
+        document.getElementById('predicted').innerHTML = foodName;
         startWordle(foodName);
     })
     .catch(error => {
