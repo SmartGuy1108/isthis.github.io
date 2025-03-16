@@ -2,18 +2,17 @@
 <module type="WEB_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python facet">
-      <configuration sdkName="Python 3.12 virtualenv at C:\Users\anagh\HackathonProjects\isthis.github.io\.venv" />
+      <configuration sdkName="Python 3.12 virtualenv at C:\Users\anagh\WebstormProjects\isthis.github.io\.venv" />
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$USER_HOME$/HackathonProjects/isthis.github.io">
-      <excludeFolder url="file://$USER_HOME$/HackathonProjects/isthis.github.io/.tmp" />
-      <excludeFolder url="file://$USER_HOME$/HackathonProjects/isthis.github.io/temp" />
-      <excludeFolder url="file://$USER_HOME$/HackathonProjects/isthis.github.io/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.12 virtualenv at C:\Users\anagh\HackathonProjects\isthis.github.io\.venv interpreter library" level="application" />
+    <orderEntry type="library" name="Python 3.12 virtualenv at C:\Users\anagh\WebstormProjects\isthis.github.io\.venv interpreter library" level="application" />
   </component>
 </module>
