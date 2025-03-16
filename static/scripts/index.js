@@ -52,10 +52,10 @@ document.getElementById('imageFile').addEventListener('change', function (event)
     }
 });
 
-function startPuzzleSequence(food) {
-    const puzzles = [
-        { question: "What color is this food typically?", answer: "color" },
-        { question: "Is this food sweet or savory?", answer: "taste" },
-        { question: "Which cuisine is this food commonly found in?", answer: "cuisine" }
-    ];
+
+window.onload = function() {
+    var food = "placeholder";
+    var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
+    document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
+};
 
