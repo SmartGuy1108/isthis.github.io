@@ -19,8 +19,10 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     })
     .then(response => response.json())
     .then(data => {
-        let foodName = data.message.replace(/_/g, '');
+        const foodName = data.message.replace(/_/g, '');
         document.getElementById('predicted').innerHTML = foodName;
+        const anagramFood = foodName.split('').sort(() => Math.random() - 0.5).join('');
+        document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
     })
     .catch(error => {
         console.error('Error:', error);
@@ -49,9 +51,3 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
          imagePreview.classList.add("hidden");
      }
  });
-
-
-
-var food = foodName;
-var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
-document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
