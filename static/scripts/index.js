@@ -18,7 +18,7 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => {
             document.getElementById('predicted').innerText = data.message
-                .replace(/_/g, ' ') // Remove underscores
+                .replace(/_/g, '') // Remove underscores
                 .replace(
                     /\w\S*/g,
                     text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
