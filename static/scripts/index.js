@@ -1,3 +1,5 @@
+// JavaScript Food Puzzle Game
+
 document.getElementById('uploadForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -17,45 +19,33 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     })
     .then(response => response.json())
     .then(data => {
-        let foodName = data.message
-            .replace(/_/g, '') // Remove underscores
-            .replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()); // Title case
-
-        document.getElementById('predicted').innerText = "AI identified food. Solve the puzzles to reveal it!";
-        
-        // Start the puzzle sequence
-        startPuzzleSequence(foodName);
+        let foodName = data.message.replace(/_/g, '');
+        startWordle(foodName);
     })
     .catch(error => {
         console.error('Error:', error);
     });
 });
 
-document.getElementById('imageFile').addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    const fileNameDisplay = document.getElementById('fileName');
-    const imagePreview = document.getElementById('imagePreview');
+function startWordle(food) {
+    alert("Start the Wordle game! Try to guess the food name.");
+    // Implement a simple Wordle-like guessing game here
+    startJigsawPuzzle(food);
+}
 
-    if (file) {
-        fileNameDisplay.textContent = file.name;
+function startJigsawPuzzle(food) {
+    alert("Solve the jigsaw puzzle of the food image!");
+    // Implement jigsaw puzzle logic using the uploaded image
+    startCountryGuess(food);
+}
 
-        // Show image preview
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            imagePreview.src = e.target.result;
-            imagePreview.classList.remove("hidden");
-        };
-        reader.readAsDataURL(file);
-    } else {
-        fileNameDisplay.textContent = "No file chosen";
-        imagePreview.classList.add("hidden");
-    }
-});
+function startCountryGuess(food) {
+    alert("Guess the country of origin for this food!");
+    // Implement country-guessing logic
+    revealAnagram(food);
+}
 
-
-window.onload = function() {
-    var food = "placeholder";
-    var anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
+function revealAnagram(food) {
+    let anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
     document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
-};
-
+}
