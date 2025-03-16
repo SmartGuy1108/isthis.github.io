@@ -59,25 +59,3 @@ function startPuzzleSequence(food) {
         { question: "Which cuisine is this food commonly found in?", answer: "cuisine" }
     ];
 
-    let puzzleIndex = 0;
-
-    function askNextPuzzle() {
-        if (puzzleIndex < puzzles.length) {
-            let userAnswer = prompt(puzzles[puzzleIndex].question);
-            if (userAnswer !== null) {
-                puzzleIndex++;
-                askNextPuzzle();
-            }
-        } else {
-            // All puzzles solved, reveal anagram
-            revealAnagram(food);
-        }
-    }
-
-    askNextPuzzle();
-}
-
-function revealAnagram(food) {
-    let anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
-    document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
-}
