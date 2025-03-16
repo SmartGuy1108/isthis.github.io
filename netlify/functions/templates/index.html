@@ -9,15 +9,31 @@
 </head>
 
 <body>
-<h1 id = "heading">WHAT FOOD IS IT?</h1>
-<h2 style = "margin-top: 90px;">File Upload</h2>
-<div style="text-align: center; margin-top: 100px; size: 50px;">
+<h1 id="heading">WHAT FOOD IS IT?</h1>
+<h2 style="margin-top: 90px;">File Upload</h2>
+
+<div class="upload-wrapper">
     <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" id="imageFile" name="image" accept="image/*" required>
-        <button type="submit">Upload</button>
+        <div class="container">
+            <!-- Image preview -->
+            <img id="imagePreview" src="" alt="Image Preview" class="hidden">
+
+            <!-- File name display -->
+            <span id="fileName">No file chosen</span>
+
+            <!-- Custom file input button -->
+            <input type="file" id="imageFile" name="image" accept="image/*" hidden>
+            <label for="imageFile" class="custom-file-button">Choose Image</label>
+
+            <!-- Upload button -->
+            <button class="btn" type="submit">Upload</button>
+
+        </div>
     </form>
 </div>
-<h1 id="predicted">{{ predicted_class }}</h1>
-<script src = "../static/scripts/index.js"></script>
+
+<p id="predicted"></p>
+
+<script src="../static/scripts/index.js"></script>
 </body>
 </html>
