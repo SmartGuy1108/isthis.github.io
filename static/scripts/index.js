@@ -20,7 +20,6 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     .then(response => response.json())
     .then(data => {
         const foodName = data.message.replace(/_/g, '');
-        document.getElementById('predicted').innerText = foodName;
         const anagramFood = foodName.split('').sort(() => Math.random() - 0.5).join('');
         document.getElementById("anagramShow").innerText = "Solve this! " + anagramFood;
     })
