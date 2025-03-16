@@ -1,4 +1,4 @@
-# Image Scramble Identifier called isthis
+# Food Image Scramble Identifier called FoodShuffle
 
 ## Overview  
 This is a web application that allows users to upload an image, which is then processed by an AI model to identify its contents. Instead of displaying the result directly, the application scrambles the image and shows it to the user in a distorted form.  
