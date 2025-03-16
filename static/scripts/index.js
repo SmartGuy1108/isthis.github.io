@@ -27,25 +27,4 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
     });
 });
 
-function startWordle(food) {
-    alert("Start the Wordle game! Try to guess the food name.");
-    // Implement a simple Wordle-like guessing game here
-    startJigsawPuzzle(food);
-}
 
-function startJigsawPuzzle(food) {
-    alert("Solve the jigsaw puzzle of the food image!");
-    // Implement jigsaw puzzle logic using the uploaded image
-    startCountryGuess(food);
-}
-
-function startCountryGuess(food) {
-    alert("Guess the country of origin for this food!");
-    // Implement country-guessing logic
-    revealAnagram(food);
-}
-
-function revealAnagram(food) {
-    let anagramFood = food.split('').sort(() => Math.random() - 0.5).join('');
-    document.getElementById("anagramShow").textContent = "Solve this! " + anagramFood;
-}
